@@ -3,7 +3,7 @@
 require_once 'telemetry_db.php';
 
 error_reporting(0);
-putenv('GDFONTPATH='.realpath('.'));
+putenv('GDFONTPATH=' . realpath('.'));
 
 /**
  * @param string $name
@@ -16,7 +16,7 @@ function tryFont($name)
         return $name;
     }
 
-    $fullPathToFont = realpath('.').'/'.$name.'.ttf';
+    $fullPathToFont = realpath('.') . '/' . $name . '.ttf';
     if (is_array(imageftbbox(12, 0, $fullPathToFont, 'M'))) {
         return $fullPathToFont;
     }
@@ -156,7 +156,7 @@ function drawImage($speedtest)
 
     $SEPARATOR_Y = 211 * $SCALE;
 
-    $POSITION_X_TIMESTAMP= 4 * $SCALE;
+    $POSITION_X_TIMESTAMP = 4 * $SCALE;
     $POSITION_Y_TIMESTAMP = 223 * $SCALE;
 
     $POSITION_Y_WATERMARK = 223 * $SCALE;

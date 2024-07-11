@@ -1,6 +1,6 @@
 <?php
 
-define('ID_OBFUSCATION_SALT_FILE', __DIR__.'/idObfuscation_salt.php');
+define('ID_OBFUSCATION_SALT_FILE', __DIR__ . '/idObfuscation_salt.php');
 
 /**
  * @return string|int
@@ -10,7 +10,7 @@ function getObfuscationSalt()
     if (!file_exists(ID_OBFUSCATION_SALT_FILE)) {
         $bytes = openssl_random_pseudo_bytes(4);
 
-        $saltData = "<?php\n\n\$OBFUSCATION_SALT = 0x".bin2hex($bytes).";\n";
+        $saltData = "<?php\n\n\$OBFUSCATION_SALT = 0x" . bin2hex($bytes) . ";\n";
         file_put_contents(ID_OBFUSCATION_SALT_FILE, $saltData);
     }
 

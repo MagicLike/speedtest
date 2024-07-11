@@ -40,4 +40,4 @@ if (false === $id) {
     exit(1);
 }
 
-echo 'id '.$id;
+echo 'id ' . $id;

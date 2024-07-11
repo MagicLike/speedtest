@@ -13,18 +13,18 @@ function getPdo($returnErrorMessage = false)
         !file_exists(TELEMETRY_SETTINGS_FILE)
         || !is_readable(TELEMETRY_SETTINGS_FILE)
     ) {
-		if($returnErrorMessage){
-			return 'missing TELEMETRY_SETTINGS_FILE';
-		}
+        if ($returnErrorMessage) {
+            return 'missing TELEMETRY_SETTINGS_FILE';
+        }
         return false;
     }
 
     require TELEMETRY_SETTINGS_FILE;
 
     if (!isset($db_type)) {
-		if($returnErrorMessage){
-			return "db_type not set in '" . TELEMETRY_SETTINGS_FILE . "'";
-		}
+        if ($returnErrorMessage) {
+            return "db_type not set in '" . TELEMETRY_SETTINGS_FILE . "'";
+        }
         return false;
     }
 
@@ -34,77 +34,82 @@ function getPdo($returnErrorMessage = false)
 
     try {
         if ('mssql' === $db_type) {
-            if (!isset(
+            if (
+                !isset(
                 $MsSql_server,
                 $MsSql_databasename,
-				$MsSql_WindowsAuthentication
-            )) {
-				if($returnErrorMessage){
-					return "Required MSSQL database settings missing in '" . TELEMETRY_SETTINGS_FILE . "'";
-				}
+                $MsSql_WindowsAuthentication
+            )
+            ) {
+                if ($returnErrorMessage) {
+                    return "Required MSSQL database settings missing in '" . TELEMETRY_SETTINGS_FILE . "'";
+                }
                 return false;
             }
-			
-			if (!$MsSql_WindowsAuthentication and
-			    !isset(
-						$MsSql_username,
-						$MsSql_password
-						)
-				) {
-				if($returnErrorMessage){
-					return "Required MSSQL database settings missing in '" . TELEMETRY_SETTINGS_FILE . "'";
-				}
+
+            if (
+                !$MsSql_WindowsAuthentication and
+                !isset(
+                $MsSql_username,
+                $MsSql_password
+            )
+            ) {
+                if ($returnErrorMessage) {
+                    return "Required MSSQL database settings missing in '" . TELEMETRY_SETTINGS_FILE . "'";
+                }
                 return false;
             }
             $dsn = 'sqlsrv:'
-                .'server='.$MsSql_server
-                .';Database='.$MsSql_databasename;
-			
-			if($MsSql_TrustServerCertificate === true){
-				$dsn = $dsn . ';TrustServerCertificate=1';
-			}
-			if($MsSql_TrustServerCertificate === false){
-				$dsn = $dsn . ';TrustServerCertificate=0';
-			}
-			
-			if($MsSql_WindowsAuthentication){
-				return new PDO($dsn, "", "", $pdoOptions);
-			} else {
-				return new PDO($dsn, $MySql_username, $MySql_password, $pdoOptions);
-			}
+                . 'server=' . $MsSql_server
+                . ';Database=' . $MsSql_databasename;
+
+            if ($MsSql_TrustServerCertificate === true) {
+                $dsn = $dsn . ';TrustServerCertificate=1';
+            }
+            if ($MsSql_TrustServerCertificate === false) {
+                $dsn = $dsn . ';TrustServerCertificate=0';
+            }
+
+            if ($MsSql_WindowsAuthentication) {
+                return new PDO($dsn, "", "", $pdoOptions);
+            } else {
+                return new PDO($dsn, $MySql_username, $MySql_password, $pdoOptions);
+            }
         }
 
         if ('mysql' === $db_type) {
-            if (!isset(
+            if (
+                !isset(
                 $MySql_hostname,
                 $MySql_port,
                 $MySql_databasename,
                 $MySql_username,
                 $MySql_password
-            )) {
-                if($returnErrorMessage){
-					return "Required mysql database settings missing in '" . TELEMETRY_SETTINGS_FILE . "'";
-				}
-				return false;
+            )
+            ) {
+                if ($returnErrorMessage) {
+                    return "Required mysql database settings missing in '" . TELEMETRY_SETTINGS_FILE . "'";
+                }
+                return false;
             }
 
             $dsn = 'mysql:'
-                .'host='.$MySql_hostname
-                .';port='.$MySql_port
-                .';dbname='.$MySql_databasename;
+                . 'host=' . $MySql_hostname
+                . ';port=' . $MySql_port
+                . ';dbname=' . $MySql_databasename;
 
             return new PDO($dsn, $MySql_username, $MySql_password, $pdoOptions);
         }
 
         if ('sqlite' === $db_type) {
             if (!isset($Sqlite_db_file)) {
-				if($returnErrorMessage){
-					return "Required sqlite database settings missing in '" . TELEMETRY_SETTINGS_FILE . "'";
-				}
+                if ($returnErrorMessage) {
+                    return "Required sqlite database settings missing in '" . TELEMETRY_SETTINGS_FILE . "'";
+                }
                 return false;
             }
 
-            $pdo = new PDO('sqlite:'.$Sqlite_db_file, null, null, $pdoOptions);
+            $pdo = new PDO('sqlite:' . $Sqlite_db_file, null, null, $pdoOptions);
 
             $pdo->exec('
                 CREATE TABLE IF NOT EXISTS `speedtest_users` (
@@ -127,34 +132,36 @@ function getPdo($returnErrorMessage = false)
         }
 
         if ('postgresql' === $db_type) {
-            if (!isset(
+            if (
+                !isset(
                 $PostgreSql_hostname,
                 $PostgreSql_databasename,
                 $PostgreSql_username,
                 $PostgreSql_password
-            )) {
-                if($returnErrorMessage){
-					return "Required postgresql database settings missing in '" . TELEMETRY_SETTINGS_FILE . "'";
-				}
-				return false;
+            )
+            ) {
+                if ($returnErrorMessage) {
+                    return "Required postgresql database settings missing in '" . TELEMETRY_SETTINGS_FILE . "'";
+                }
+                return false;
             }
 
             $dsn = 'pgsql:'
-                .'host='.$PostgreSql_hostname
-                .';dbname='.$PostgreSql_databasename;
+                . 'host=' . $PostgreSql_hostname
+                . ';dbname=' . $PostgreSql_databasename;
 
             return new PDO($dsn, $PostgreSql_username, $PostgreSql_password, $pdoOptions);
         }
     } catch (Exception $e) {
-		if($returnErrorMessage){
-			return $e->getMessage();
-		}
+        if ($returnErrorMessage) {
+            return $e->getMessage();
+        }
         return false;
     }
 
-	if($returnErrorMessage){
-		return "db_type '" . $db_type . "' not supported";
-	}
+    if ($returnErrorMessage) {
+        return "db_type '" . $db_type . "' not supported";
+    }
     return false;
 }
 
@@ -177,9 +184,9 @@ function insertSpeedtestUser($ip, $ispinfo, $extra, $ua, $lang, $dl, $ul, $ping,
 {
     $pdo = getPdo();
     if (!($pdo instanceof PDO)) {
-		if($returnExceptionOnError){
-			return new Exception("Failed to get database connection object");
-		}
+        if ($returnExceptionOnError) {
+            return new Exception("Failed to get database connection object");
+        }
         return false;
     }
 
@@ -190,13 +197,22 @@ function insertSpeedtestUser($ip, $ispinfo, $extra, $ua, $lang, $dl, $ul, $ping,
         VALUES (?,?,?,?,?,?,?,?,?,?)'
         );
         $stmt->execute([
-            $ip, $ispinfo, $extra, $ua, $lang, $dl, $ul, $ping, $jitter, $log
+            $ip,
+            $ispinfo,
+            $extra,
+            $ua,
+            $lang,
+            $dl,
+            $ul,
+            $ping,
+            $jitter,
+            $log
         ]);
         $id = $pdo->lastInsertId();
     } catch (Exception $e) {
-		if($returnExceptionOnError){
-			return $e;
-		}
+        if ($returnExceptionOnError) {
+            return $e;
+        }
         return false;
     }
 
@@ -216,13 +232,13 @@ function insertSpeedtestUser($ip, $ispinfo, $extra, $ua, $lang, $dl, $ul, $ping,
  *
  * @throws RuntimeException
  */
-function getSpeedtestUserById($id,$returnExceptionOnError = false)
+function getSpeedtestUserById($id, $returnExceptionOnError = false)
 {
     $pdo = getPdo();
     if (!($pdo instanceof PDO)) {
-		if($returnExceptionOnError){
-			return new Exception("Failed to get database connection object");
-		}
+        if ($returnExceptionOnError) {
+            return new Exception("Failed to get database connection object");
+        }
         return false;
     }
 
@@ -241,9 +257,9 @@ function getSpeedtestUserById($id,$returnExceptionOnError = false)
         $stmt->execute();
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
     } catch (Exception $e) {
-		if($returnExceptionOnError){
-			return $e;
-		}
+        if ($returnExceptionOnError) {
+            return $e;
+        }
         return false;
     }
 
@@ -253,7 +269,7 @@ function getSpeedtestUserById($id,$returnExceptionOnError = false)
 
     $row['id_formatted'] = $row['id'];
     if (isObfuscationEnabled()) {
-        $row['id_formatted'] = obfuscateId($row['id']).' (deobfuscated: '.$row['id'].')';
+        $row['id_formatted'] = obfuscateId($row['id']) . ' (deobfuscated: ' . $row['id'] . ')';
     }
 
     return $row;
@@ -270,18 +286,22 @@ function getLatestSpeedtestUsers()
     }
 
     require TELEMETRY_SETTINGS_FILE;
-	
+
     try {
-		$sql = 'SELECT ';
-		
-		if('mssql' === $db_type) {$sql .= ' TOP(100) ';}
-		
-		$sql .= ' id, timestamp, ip, ispinfo, ua, lang, dl, ul, ping, jitter, log, extra
+        $sql = 'SELECT ';
+
+        if ('mssql' === $db_type) {
+            $sql .= ' TOP(100) ';
+        }
+
+        $sql .= ' id, timestamp, ip, ispinfo, ua, lang, dl, ul, ping, jitter, log, extra
             FROM speedtest_users
             ORDER BY timestamp DESC ';
-			
-		if('mssql' !== $db_type) {$sql .= ' LIMIT 100 ';}
-		
+
+        if ('mssql' !== $db_type) {
+            $sql .= ' LIMIT 100 ';
+        }
+
         $stmt = $pdo->query($sql);
 
         $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -289,7 +309,7 @@ function getLatestSpeedtestUsers()
         foreach ($rows as $i => $row) {
             $rows[$i]['id_formatted'] = $row['id'];
             if (isObfuscationEnabled()) {
-                $rows[$i]['id_formatted'] = obfuscateId($row['id']).' (deobfuscated: '.$row['id'].')';
+                $rows[$i]['id_formatted'] = obfuscateId($row['id']) . ' (deobfuscated: ' . $row['id'] . ')';
             }
         }
     } catch (Exception $e) {
