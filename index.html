@@ -124,7 +124,7 @@
 			} else {
 				//test is not running, begin
 				I("startStopBtn").className = "running";
-				I("shareArea").style.display = "none";
+				I("shareArea").className = "hidden";
 				I("server").disabled = true;
 				s.onupdate = function (data) {
 					uiData = data;
@@ -142,7 +142,7 @@
 								I("resultsImg").src = shareURL;
 								I("resultsURL").value = shareURL;
 								I("testId").innerHTML = testId;
-								I("shareArea").style.display = "";
+								I("shareArea").className = "visible";
 							}
 						} catch (e) { }
 					}
@@ -410,12 +410,16 @@
 			}
 		}
 
+		.visible{
+			animation: fadeIn 0.4s;
+		}
+
 		div.visible {
 			animation: fadeIn 0.4s;
 			display: block;
 		}
 
-		div.hidden {
+		.hidden{
 			animation: fadeOut 0.4s;
 			display: none;
 		}
@@ -470,11 +474,6 @@
 		#jitText {
 			color: #AA6060;
 		}
-
-		#shareArea,
-		#privacyPolicy {
-			display: none;
-		}
 	</style>
 	<title>MagicSpeed</title>
 </head>
@@ -486,7 +485,7 @@
 	</div>
 	<div id="testWrapper" class="hidden">
 		<div id="startStopBtn" onclick="startStop()"></div><br />
-		<a class="privacy" href="#" onclick="I('privacyPolicy').style.display=''">Privacy</a>
+		<a class="privacy" href="#" onclick="I('privacyPolicy').className = 'visible'">Privacy Policy</a>
 		<div id="serverArea">
 			Server: <select id="server" onchange="s.setSelectedServer(SPEEDTEST_SERVERS[this.value])"></select>
 		</div>
@@ -523,7 +522,7 @@
 			<div id="ipArea">
 				<span id="ip"></span>
 			</div>
-			<div id="shareArea">
+			<div id="shareArea" class="hidden">
 				<h3>Share results</h3>
 				<p>Test ID: <span id="testId"></span></p>
 				<input type="text" value="" id="resultsURL" readonly="readonly"
@@ -533,7 +532,7 @@
 		</div>
 		<a href="https://github.com/MagicLike/speedtest/tree/MagicSpeed">Source code</a>
 	</div>
-	<div id="privacyPolicy">
+	<div id="privacyPolicy" class="hidden">
 		<h2>Privacy Policy</h2>
 		<p>This HTML5 speed test server is configured with telemetry enabled.</p>
 		<h4>What data we collect</h4>
@@ -573,11 +572,11 @@
 		</p>
 		<br /><br />
 		<div class="closePrivacyPolicy">
-			<a class="privacy" href="#" onclick="I('privacyPolicy').style.display='none'">Close</a>
+			<a class="privacy" href="#" onclick="I('privacyPolicy').className = 'hidden'">Close</a>
 			<script>
 				document.onkeydown = function (cls) {
 					if (cls.keyCode == 27) {
-						I('privacyPolicy').style.display = 'none';
+						I('privacyPolicy').className = 'hidden';
 					}
 				};
 			</script>
