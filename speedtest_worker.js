@@ -3,6 +3,8 @@
 	by Federico Dossena
 	https://github.com/librespeed/speedtest/
 	GNU LGPLv3 License
+  
+  	Modified by Magiclike - https://magiclike.net
 */
 
 // data reported to main thread
