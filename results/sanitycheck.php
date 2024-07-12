@@ -188,6 +188,7 @@ $na = "<span class='na'>N/A</span>";
 						echo "</td><td></td>";
 					}
 				} else {
+					echo $failed;
 					echo "</td><td>Insert failed so can't test reading inserted data</td>";
 				}
 				?>
