@@ -1,5 +1,7 @@
 # MagicSpeed Backend
-**Source code for [speedtest.magiclike.net](https://speedtest.magiclike.net)  backend servers.**
+Source code for the **backend** of [speedtest.magiclike.net](https://speedtest.magiclike.net).
+
+You can find the frontend on the branch `MagicSpeed`.   
 
 This is a modified version of LibreSpeed, tailored to my needs. To support the original developer or contribute to software base, visit the upstream repo at [librespeed/speedtest](https://github.com/librespeed/speedtest).
 
