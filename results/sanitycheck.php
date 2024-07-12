@@ -6,7 +6,7 @@ require_once '../backend/getIP_util.php';
 error_reporting(E_ALL);
 
 $pass = "<span class='Pass'>Pass</span>";
-$failed = "<span class='Failed'>failed</span>";
+$failed = "<span class='Failed'>Failed</span>";
 $na = "<span class='na'>N/A</span>";
 ?>
 
