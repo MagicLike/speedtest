@@ -1,4 +1,7 @@
-![LibreSpeed Logo](/assets/img/logod.png)
+<picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://codeberg.org/MagicLike/MagicSpeed/raw/branch/MagicSpeed/assets/img/logol.png">
+    <img src="https://codeberg.org/MagicLike/MagicSpeed/raw/branch/MagicSpeed/assets/img/logod.png">
+</picture>
 
 # MagicSpeed
 Source code for the **frontend** of [speedtest.magiclike.net](https://speedtest.magiclike.net),
