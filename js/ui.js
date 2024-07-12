@@ -69,6 +69,7 @@ function startStop() {
                         I("resultsURL").value = shareURL;
                         I("testId").innerHTML = testId;
                         I("shareArea").className = "visible";
+                        I("resultsImg").scrollIntoView({ behavior: "smooth", block: "end" });
                     }
                 } catch (e) { }
             }
