@@ -49,6 +49,14 @@ span.loadCircle {
     }
 }
 
+header {
+    line-height: 25px;
+}
+
+h1 {
+    font-size: 45px;
+}
+
 #startStopBtn {
     display: inline-block;
     margin: 0 auto 5px;
@@ -247,7 +255,7 @@ footer {
 .privacy,
 #source {
     text-align: center;
-    font-size: 0.8em;
+    font-size: 0.9em;
 }
 
 div.closePrivacyPolicy {
