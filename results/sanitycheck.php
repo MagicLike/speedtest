@@ -14,29 +14,7 @@ $na = "<span class='na'>N/A</span>";
 
 <head>
 	<title>Speed Test installation sanity check</title>
-	<style>
-		table,
-		th,
-		td {
-			border: 1px solid;
-		}
-
-		.Pass {
-			color: green;
-		}
-
-		.Failed {
-			color: red;
-		}
-
-		.na {
-			color: orange;
-		}
-
-		.SectionHeading {
-			font-style: italic;
-		}
-	</style>
+	<link rel="stylesheet" type="text/css" href="/css/sanity.css">
 </head>
 
 <body>

@@ -1,0 +1,27 @@
+body {
+    background-color: #202020;
+    color: #FFFFFF;
+}
+
+table,
+th,
+td {
+    border: 1px solid;
+    border-color: #808080;
+}
+
+.Pass {
+    color: green;
+}
+
+.Failed {
+    color: red;
+}
+
+.na {
+    color: orange;
+}
+
+.SectionHeading {
+    font-style: italic;
+}
