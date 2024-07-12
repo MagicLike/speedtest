@@ -235,17 +235,19 @@ div.testGroup {
     text-align: left;
     background-color: #202020;
     padding: 1em;
+a {
+    color: #7CB242;
 }
 
 footer {
     margin-bottom: 20px;
+    color: #808080;
 }
 
 .privacy,
 #source {
     text-align: center;
     font-size: 0.8em;
-    color: #808080;
 }
 
 div.closePrivacyPolicy {
