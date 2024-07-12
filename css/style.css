@@ -330,3 +330,10 @@ div.visible {
 #jitText {
     color: #AA6060;
 }
+
+#resultsURL {
+    background-color: #404040;
+    color: #FFFFFF;
+    border-color: #808080;
+    border-radius: 5px;
+}
