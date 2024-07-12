@@ -1,0 +1,4 @@
+# Shortlinks
+RewriteEngine On
+RewriteRule ^stats results/stats.php
+RewriteRule ^sanity results/sanitycheck.php
