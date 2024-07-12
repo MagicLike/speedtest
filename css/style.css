@@ -3,23 +3,29 @@ body {
     border: none;
     padding: 0;
     margin: 0;
-    background: #FFFFFF;
-    color: #202020;
+    background-color: #202020;
+    color: #FFFFFF;
+    scroll-behavior: smooth;
+    scrollbar-width: auto;
+    scrollbar-color: dark;
 }
 
 body {
     text-align: center;
     font-family: "Roboto", sans-serif;
-}
-
-h1 {
-    color: #404040;
+    font-size: 17px;
 }
 
 #loading {
-    background-color: #FFFFFF;
-    color: #404040;
+    background-color: #404040;
+    color: #FFFFFF;
     text-align: center;
+    margin: 100px auto auto;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 10px;
+    width: 15em;
+    font-size: 20px;
 }
 
 span.loadCircle {
@@ -45,28 +51,32 @@ span.loadCircle {
 
 #startStopBtn {
     display: inline-block;
-    margin: 0 auto;
-    color: #6060AA;
+    margin: 0 auto 5px;
+    color: #7CB242;
     background-color: rgba(0, 0, 0, 0);
-    border: 0.15em solid #6060FF;
-    border-radius: 0.3em;
+    border: 0.15em solid #7CB242;
+    border-radius: 10px;
     transition: all 0.3s;
     box-sizing: border-box;
     width: 8em;
     height: 3em;
     line-height: 2.7em;
     cursor: pointer;
-    box-shadow: 0 0 0 rgba(0, 0, 0, 0.1), inset 0 0 0 rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 0 #7CB242, inset 0 0 0 #7CB242;
 }
 
 #startStopBtn:hover {
-    box-shadow: 0 0 2em rgba(0, 0, 0, 0.1), inset 0 0 1em rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 2em #7CB242, inset 0 0 1em #7CB242;
 }
 
 #startStopBtn.running {
-    background-color: #FF3030;
-    border-color: #FF6060;
+    background-color: #ff0000;
+    border-color: #FF3030;
     color: #FFFFFF;
+}
+
+#startStopBtn.running:hover {
+    box-shadow: 0 0 2em #ff0000;
 }
 
 #startStopBtn:before {
@@ -79,16 +89,39 @@ span.loadCircle {
 
 #serverArea {
     margin-top: 1em;
+    margin-bottom: 40px;
 }
 
 #server {
     font-size: 1em;
     padding: 0.2em;
+    background-color: #404040;
+    color: #FFFFFF;
+    border-color: #808080;
+    border-radius: 10px;
+}
+
+hr {
+    width: 70%;
+    max-width: 900px;
+    min-width: 300px;
+    height: 5px;
+    border-radius: 10px;
+    background-color: #808080;
+    border: none;
+    margin-top: 30px;
+    margin-bottom: 30px;
 }
 
 #test {
     margin-top: 2em;
     margin-bottom: 12em;
+    /*border-width: 5px;
+    border-color: #808080;
+    border-radius: 10px;
+    border-style:outset;
+    width: max-content;
+    margin: auto;*/
 }
 
 div.testArea {
@@ -121,6 +154,14 @@ div.testArea2 div.testName {
     display: block;
     text-align: center;
     font-size: 1.4em;
+}
+
+.testName {
+    margin-bottom: 5px;
+}
+
+.meter {
+    margin-top: 10px;
 }
 
 div.testArea div.meterText {
@@ -192,15 +233,19 @@ div.testGroup {
     box-shadow: 0 0 3em 1em #000000;
     z-index: 999999;
     text-align: left;
-    background-color: #FFFFFF;
+    background-color: #202020;
     padding: 1em;
 }
 
-a.privacy {
+footer {
+    margin-bottom: 20px;
+}
+
+.privacy,
+#source {
     text-align: center;
     font-size: 0.8em;
     color: #808080;
-    padding: 0 3em;
 }
 
 div.closePrivacyPolicy {
@@ -256,8 +301,10 @@ div.visible {
 
 #progressBar {
     width: 90%;
-    height: 0.3em;
-    background-color: #EEEEEE;
+    max-width: 700px;
+    height: 0.5em;
+    border-radius: 10px;
+    background-color: #404040;
     position: relative;
     display: block;
     margin: 0 auto;
@@ -270,7 +317,8 @@ div.visible {
     height: 100%;
     width: 0;
     transition: width 2s;
-    background-color: #90BBFF;
+    background-color: #7CB242;
+    border-radius: 10px;
 }
 
 #ipArea {
