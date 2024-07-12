@@ -128,4 +128,8 @@ document.onkeydown = function (esc) {
 function cls() {
     I('privacyPolicy').className = 'hidden';
 }
+
+//autoscroll to given element
+function autoscroll(eid) {
+    I(eid).scrollIntoView({ behavior: "smooth", block: "end" })
 }

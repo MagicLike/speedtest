@@ -67,7 +67,7 @@
 				<p>Test ID: <span id="testId"></span></p>
 				<input type="text" value="" id="resultsURL" readonly="readonly" title="Shareable URL output"
 					onclick="this.select();this.focus();this.select();document.execCommand('copy');alert('Link copied')" />
-				<img src="" id="resultsImg" title="Results composed as an image" />
+				<img src="" id="resultsImg" title="Results composed as an image" onload="autoscroll('resultsImg')" />
 			</div>
 		</div>
 		<footer>
