@@ -1,0 +1,24 @@
+html {
+    background-color: #202020;
+    color: #FFFFFF;
+}
+
+body {
+    text-align: center;
+    font-family: "Roboto", sans-serif;
+}
+
+p {
+    background-color: #404040;
+    text-align: center;
+    margin: auto;
+    margin-top: 50px;
+    padding: 10px;
+    border-radius: 10px;
+    width: max-content;
+    line-height: 150%;
+}
+
+a {
+    color: #7CB242;
+}
