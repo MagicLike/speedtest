@@ -16,7 +16,7 @@ function tryFont($name)
         return $name;
     }
 
-    $fullPathToFont = realpath('.') . '/' . $name . '.ttf';
+    $fullPathToFont = realpath('/') . 'assets' . '/' . 'fonts' . '/' . 'opensans' . '/' . 'static' . '/' . $name . '.ttf';
     if (is_array(imageftbbox(12, 0, $fullPathToFont, 'M'))) {
         return $fullPathToFont;
     }
