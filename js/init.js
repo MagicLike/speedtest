@@ -17,6 +17,12 @@ var SPEEDTEST_SERVERS = [
 var s = new Speedtest(); //create speed test object
 s.setParameter("telemetry_level", "full"); //enable telemetry
 
+//GAUGE COLOURS
+var meterBk = /Trident.*rv:(\d+\.\d+)/i.test(navigator.userAgent) ? "#EAEAEA" : "#80808040";
+var dlColor = "#008BFF",
+    ulColor = "#FFF500";
+var progColor = "#404040";
+
 //SERVER AUTO SELECTION
 function initServers() {
     var noServersAvailable = function () {
@@ -60,7 +66,3 @@ function initServers() {
     }
 }
 
-var meterBk = /Trident.*rv:(\d+\.\d+)/i.test(navigator.userAgent) ? "#EAEAEA" : "#80808040";
-var dlColor = "#6060AA",
-    ulColor = "#616161";
-var progColor = meterBk;
