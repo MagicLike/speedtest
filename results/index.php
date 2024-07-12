@@ -16,7 +16,7 @@ function tryFont($name)
         return $name;
     }
 
-    $fullPathToFont = realpath('/') . 'assets' . '/' . 'fonts' . '/' . 'opensans' . '/' . 'static' . '/' . $name . '.ttf';
+    $fullPathToFont = realpath('../assets/fonts/opensans/static') . '/' . $name . '.ttf';
     if (is_array(imageftbbox(12, 0, $fullPathToFont, 'M'))) {
         return $fullPathToFont;
     }
@@ -97,7 +97,7 @@ function drawImage($speedtest)
     $BACKGROUND_COLOR = imagecolorallocate($im, 255, 255, 255);
 
     // configure fonts
-    $FONT_LABEL = tryFont('OpenSans-Semibold');
+    $FONT_LABEL = tryFont('OpenSans-SemiBold');
     $FONT_LABEL_SIZE = 14 * $SCALE;
     $FONT_LABEL_SIZE_BIG = 16 * $SCALE;
 
@@ -105,11 +105,11 @@ function drawImage($speedtest)
     $FONT_METER_SIZE = 20 * $SCALE;
     $FONT_METER_SIZE_BIG = 22 * $SCALE;
 
-    $FONT_MEASURE = tryFont('OpenSans-Semibold');
+    $FONT_MEASURE = tryFont('OpenSans-SemiBold');
     $FONT_MEASURE_SIZE = 12 * $SCALE;
     $FONT_MEASURE_SIZE_BIG = 12 * $SCALE;
 
-    $FONT_ISP = tryFont('OpenSans-Semibold');
+    $FONT_ISP = tryFont('OpenSans-SemiBold');
     $FONT_ISP_SIZE = 9 * $SCALE;
 
     $FONT_TIMESTAMP = tryFont("OpenSans-Light");
