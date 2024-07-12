@@ -1,0 +1,9 @@
+# Password protection for sanitycheck.php to prevent a (DB) DDOS-Attack / keep the DB from overflowing with check entries
+# Create a `.htpasswd` using the `htpasswd` command first and link to it using an **absolute** path!
+
+#<Files sanitycheck.php>
+#AuthType Basic
+#AuthName "Authentication Required"
+#AuthUserFile /your/absolute/path/here/.htpasswd
+#Require valid-user
+#</Files>
