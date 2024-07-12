@@ -1,7 +1,7 @@
 ![LibreSpeed Logo](/assets/img/logod.png)
 
 # MagicSpeed
-**Source code for the frontend of [speedtest.magiclike.net](https://speedtest.magiclike.net)**
+Source code for the **frontend** of [speedtest.magiclike.net](https://speedtest.magiclike.net),
 
 You can find the backend on the branch `MagicSpeed-backend`.
 
