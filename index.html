@@ -77,7 +77,6 @@
 	</div>
 	<div id="privacyPolicy" class="hidden">
 		<h2>Privacy Policy</h2>
-		<p>This HTML5 speed test server is configured with telemetry enabled.</p>
 		<h4>What data we collect</h4>
 		<p>
 			At the end of the test, the following data is collected and stored:
@@ -108,20 +107,26 @@
 		<h4>Data removal</h4>
 		<p>
 			If you want to have your information deleted, you need to provide either the ID of the test or your IP
-			address. This is the only way to identify your data, without this information we won't be able to comply
-			with your request.<br /><br />
+			address. <br> This is the only way to identify your data, without this information we won't be able to
+			comply with your request.<br /><br />
 			Contact this email address for all deletion requests: <a
 				href="mailto:privacy@speedtest.magiclike.net">privacy@speedtest.magiclike.net</a>.
 		</p>
-		<br /><br />
+		<br><br>
 		<div class="closePrivacyPolicy">
 			<a class="privacy" href="#" onclick="I('privacyPolicy').className = 'hidden'">Close</a>
 			<script>
-				document.onkeydown = function (cls) {
-					if (cls.keyCode == 27) {
-						I('privacyPolicy').className = 'hidden';
+				document.onkeydown = function (esc) {
+					if (esc.keyCode == 27) {
+						cls();
 					}
 				};
+				/*privacyPolicy.onclick = function () {
+					cls();
+				}*/
+				function cls() {
+					I('privacyPolicy').className = 'hidden';
+				}
 			</script>
 		</div>
 		<br />
