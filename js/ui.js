@@ -113,3 +113,19 @@ function initUI() {
     var progBar = 0;
     I("progress").style.width = (100 * progBar) + "%";
 }
+
+//close Privacy Policy window
+document.onkeydown = function (esc) {
+    if (esc.keyCode == 27) {
+        cls();
+    }
+};
+
+/*privacyPolicy.onclick = function () {
+    cls();
+}*/
+
+function cls() {
+    I('privacyPolicy').className = 'hidden';
+}
+}
