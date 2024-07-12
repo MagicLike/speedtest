@@ -1,7 +1,9 @@
 ![LibreSpeed Logo](/assets/img/logod.png)
 
 # MagicSpeed
-**Source code for [speedtest.magiclike.net](https://speedtest.magiclike.net) and it's backend servers.**
+**Source code for the frontend of [speedtest.magiclike.net](https://speedtest.magiclike.net)**
+
+You can find the backend on the branch `MagicSpeed-backend`.
 
 This is a modified version of LibreSpeed, tailored to my needs. To support the original developer or contribute to software base, visit the upstream repo at [librespeed/speedtest](https://github.com/librespeed/speedtest).
 
