@@ -1,3 +1,8 @@
+<picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://codeberg.org/MagicLike/MagicSpeed/raw/branch/MagicSpeed/assets/img/logol.png">
+    <img src="https://codeberg.org/MagicLike/MagicSpeed/raw/branch/MagicSpeed/assets/img/logod.png">
+</picture>
+
 # MagicSpeed Backend
 Source code for the **backend** of [speedtest.magiclike.net](https://speedtest.magiclike.net).
 
