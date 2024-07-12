@@ -116,7 +116,7 @@ function initUI() {
 
 //close Privacy Policy window
 document.onkeydown = function (esc) {
-    if (esc.keyCode == 27) {
+    if (esc.key == 'Escape') {
         cls();
     }
 };
