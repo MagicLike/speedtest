@@ -1,141 +1,152 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-	<link rel="shortcut icon" href="/assets/img/favicon.ico">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<meta charset="UTF-8">
-	<link rel="stylesheet" type="text/css" href="/css/style.css">
-	<script type="text/javascript" src="/js/speedtest.js"></script>
-	<script src="/js/init.js"></script>
-	<script src="/js/ui.js"></script>
-	<script defer src="https://u.magiclike.net/script.js"
-		data-website-id="aa824e12-3149-418c-abc2-aa2dc6264174"></script>
-	<title>MagicSpeed</title>
-</head>
+    <head>
+        <link rel="shortcut icon" href="/assets/img/favicon.ico">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="/css/style.css">
+        <script type="text/javascript" src="/js/speedtest.js"></script>
+        <script src="/js/init.js"></script>
+        <script src="/js/ui.js"></script>
+        <script defer src="https://u.magiclike.net/script.js" data-website-id="aa824e12-3149-418c-abc2-aa2dc6264174"></script>
+        <title>MagicSpeed</title>
+    </head>
 
-<body onload="initServers()">
-	<header>
-		<h1>MagicSpeed</h1>
-		<h3>- No bullshit speed test -</h3>
-	</header>
-	<br>
-	<div id="loading" class="visible">
-		<p id="message"><span class="loadCircle"></span>Selecting a server...</p>
-	</div>
-	<div id="testWrapper" class="hidden">
-		<div id="startStopBtn" onclick="startStop()"></div><br>
-		<div id="serverArea">
-			Server: <select id="server" title="Server selection"
-				onchange="s.setSelectedServer(SPEEDTEST_SERVERS[this.value])"></select>
-		</div>
-		<hr>
-		<div id="test">
-			<div class="testGroup">
-				<div class="testArea2">
-					<div class="testName">Ping</div>
-					<div id="pingText" class="meterText"></div>
-					<div class="unit">ms</div>
-				</div>
-				<div class="testArea2">
-					<div class="testName">Jitter</div>
-					<div id="jitText" class="meterText"></div>
-					<div class="unit">ms</div>
-				</div>
-			</div>
-			<div class="testGroup">
-				<div class="testArea">
-					<div class="testName">Download</div>
-					<canvas id="dlMeter" class="meter"></canvas>
-					<div id="dlText" class="meterText"></div>
-					<div class="unit">Mbit/s</div>
-				</div>
-				<div class="testArea">
-					<div class="testName">Upload</div>
-					<canvas id="ulMeter" class="meter"></canvas>
-					<div id="ulText" class="meterText"></div>
-					<div class="unit">Mbit/s</div>
-				</div>
-			</div>
-			<div id="progressBar">
-				<div id="progress"></div>
-			</div>
-			<div id="ipArea">
-				<span id="ip"></span>
-			</div>
-			<hr>
-			<div id="shareArea" class="hidden">
-				<h3>Share results</h3>
-				<p>Test ID: <span id="testId"></span></p>
-				<input type="text" value="" id="resultsURL" readonly="readonly" title="Shareable URL output"
-					onclick="copyToClipboard('resultsURL')">
-				<img src="" id="resultsImg" title="Results composed as an image" onload="autoscroll('resultsImg')">
-			</div>
-		</div>
-		<footer>
-			<a class="privacy" href="#" onclick="privacyOPN()">Privacy Policy</a> • <a id="source"
-				href="https://github.com/MagicLike/speedtest/tree/MagicSpeed" rel="noopener" target="_blank">Source
-				code</a>
-		</footer>
-	</div>
-	<div id="privacyPolicy" class="hidden">
-		<h2>Privacy Policy</h2>
-		<h4>What data we collect</h4>
-		<p>
-			At the end of the test, the following data is collected and stored:
-		<ul>
-			<li>Test ID</li>
-			<li>Time of testing</li>
-			<li>Test results (download and upload speed, ping and jitter)</li>
-			<li>IP address</li>
-			<li>ISP information</li>
-			<li>Approximate location (inferred from IP address, not GPS)</li>
-			<li>User agent and browser locale</li>
-			<li>Test log (contains no personal information)</li>
-		</ul>
-		</p>
-		<h4>How we use the data</h4>
-		<p>
-			Data collected through this service is used to:
-		<ul>
-			<li>Allow sharing of test results (sharable image for forums, etc.)</li>
-			<li>To improve the service offered to you (for instance, to detect problems on our side)</li>
-		</ul>
-		No personal information is disclosed to third parties.
-		</p>
-		<h4>Your consent</h4>
-		<p>
-			By starting the test, you consent to the terms of this privacy policy.
-		</p>
-		<h4>Data removal</h4>
-		<p>
-			If you want to have your information deleted, you need to provide either the ID of the test or your IP
-			address. <br> This is the only way to identify your data, without this information we won't be able to
-			comply with your request.<br><br>
-			Contact this email address for all deletion requests: <a href="mailto:privacy@speedtest.magiclike.net"
-				data-umami-event="Privacy E-Mail">privacy@speedtest.magiclike.net</a>.
-		</p>
-		<h4>Analytics</h4>
-		<p>
-			This website also uses the privacy-respecting analytics tool <a href="https://umami.is" rel="noopener"
-				target="_blank">Umami</a>.
-		<p>Among other, the following data is collected by it: <br>
-		<ul>
-			<li>Browser information</li>
-			<li>OS information</li>
-			<li>Device Type</li>
-			<li>Your Country (Your IP-address is <strong>not</strong> collected!)</li>
-		</ul>
-		<strong>But</strong> it does <strong>not</strong> collect any personal data! <br>
-		If you want to opt-out regardless, then please add the following URL to your ad-blocker:
-		<pre>u.magiclike.net/script.js</pre>
-		</p>
-		<br><br>
-		<div class="closePrivacyPolicy">
-			<a class="privacy" href="#" onclick="privacyCLSText()">Close</a>
-		</div>
-		<br>
-	</div>
-</body>
+    <body onload="initServers()">
+        <header>
+            <h1>MagicSpeed</h1>
+            <h3>- No bullshit speed test -</h3>
+        </header>
+        <br>
+        <div id="loading" class="visible">
+            <p id="message">
+                <span class="loadCircle"></span>Selecting a server...</p>
+        </div>
+        <div id="testWrapper" class="hidden">
+            <div id="startStopBtn" onclick="startStop()"></div><br>
+            <div id="serverArea">
+                Server:
+                <select id="server" title="Server selection" onchange="s.setSelectedServer(SPEEDTEST_SERVERS[this.value])"></select>
+            </div>
+            <hr>
+            <div id="test">
+                <div class="testGroup">
+                    <div class="testArea2">
+                        <div class="testName">Ping</div>
+                        <div id="pingText" class="meterText"></div>
+                        <div class="unit">ms</div>
+                    </div>
+                    <div class="testArea2">
+                        <div class="testName">Jitter</div>
+                        <div id="jitText" class="meterText"></div>
+                        <div class="unit">ms</div>
+                    </div>
+                </div>
+                <div class="testGroup">
+                    <div class="testArea">
+                        <div class="testName">Download</div>
+                        <canvas id="dlMeter" class="meter"></canvas>
+                        <div id="dlText" class="meterText"></div>
+                        <div class="unit">Mbit/s</div>
+                    </div>
+                    <div class="testArea">
+                        <div class="testName">Upload</div>
+                        <canvas id="ulMeter" class="meter"></canvas>
+                        <div id="ulText" class="meterText"></div>
+                        <div class="unit">Mbit/s</div>
+                    </div>
+                </div>
+                <div id="progressBar">
+                    <div id="progress"></div>
+                </div>
+                <div id="ipArea">
+                    <span id="ip"></span>
+                </div>
+                <hr>
+                <div id="shareArea" class="hidden">
+                    <h3>Share results</h3>
+                    <p>Test ID:
+                        <span id="testId"></span>
+                    </p>
+                    <input type="text" value="" id="resultsURL" readonly="readonly" title="Shareable URL output" onclick="copyToClipboard('resultsURL')">
+                    <img src="" id="resultsImg" title="Results composed as an image" onload="autoscroll('resultsImg')">
+                </div>
+            </div>
+            <footer>
+                <a class="privacy" href="#" onclick="privacyOPN()">Privacy Policy</a>
+                •
+                <a id="source" href="https://github.com/MagicLike/speedtest/tree/MagicSpeed" rel="noopener" target="_blank">Source
+                    				code</a>
+            </footer>
+        </div>
+        <div id="privacyPolicy" class="hidden">
+            <h2>Privacy Policy</h2>
+            <h4>What data we collect</h4>
+            <p>
+                At the end of the test, the following data is collected and stored:
+                <ul>
+                    <li>Test ID</li>
+                    <li>Time of testing</li>
+                    <li>Test results (download and upload speed, ping and jitter)</li>
+                    <li>IP address</li>
+                    <li>ISP information</li>
+                    <li>Approximate location (inferred from IP address, not GPS)</li>
+                    <li>User agent and browser locale</li>
+                    <li>Test log (contains no personal information)</li>
+                </ul>
+            </p>
+            <h4>How we use the data</h4>
+            <p>
+                Data collected through this service is used to:
+                <ul>
+                    <li>Allow sharing of test results (sharable image for forums, etc.)</li>
+                    <li>To improve the service offered to you (for instance, to detect problems on our side)</li>
+                </ul>
+                No personal information is disclosed to third parties.
+            </p>
+            <h4>Your consent</h4>
+            <p>
+                By starting the test, you consent to the terms of this privacy policy.
+            </p>
+            <h4>Data removal</h4>
+            <p>
+                If you want to have your information deleted, you need to provide either the ID of the test or your IP
+                			address.
+                <br>
+                This is the only way to identify your data, without this information we won't be able to
+                			comply with your request.<br><br>
+                Contact this email address for all deletion requests:
+                <a href="mailto:privacy@speedtest.magiclike.net" data-umami-event="Privacy E-Mail">privacy@speedtest.magiclike.net</a>.
+            </p>
+            <h4>Analytics</h4>
+            <p>
+                This website also uses the privacy-respecting analytics tool
+                <a href="https://umami.is" rel="noopener" target="_blank">Umami</a>.</p>
+            <p>Among other, the following data is collected by it:
+                <br>
+                <ul>
+                    <li>Browser information</li>
+                    <li>OS information</li>
+                    <li>Device Type</li>
+                    <li>Your Country (Your IP-address is
+                        <strong>not</strong>
+                        collected!)</li>
+                </ul>
+                <strong>But</strong>
+                it does
+                <strong>not</strong>
+                collect any personal data!
+                <br>
+                If you want to opt-out regardless, then please add the following URL to your ad-blocker:
+                <pre>u.magiclike.net/script.js</pre>
+            </p>
+            <br><br>
+            <div class="closePrivacyPolicy">
+                <a class="privacy" href="#" onclick="privacyCLSText()">Close</a>
+            </div>
+            <br>
+        </div>
+    </body>
 
 </html>
