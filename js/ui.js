@@ -84,6 +84,7 @@ function updateUI(forced) {
     if (!forced && s.getState() != 3) return;
     if (uiData == null) return;
     var status = uiData.testState;
+    visible("ipText");
     I("ip").textContent = uiData.clientIp;
     I("dlText").textContent = (status == 1 && uiData.dlStatus == 0) ? "..." : format(uiData.dlStatus);
     drawMeter(I("dlMeter"), mbpsToAmount(Number(uiData.dlStatus * (status == 1 ? oscillate() : 1))), meterBk, dlColor, Number(uiData.dlProgress), progColor);
@@ -129,7 +130,7 @@ function hidden(eid) {
 
 //open Privacy Policy window
 function privacyOPN() {
-    visible('privacyPolicy');
+    visible("privacyPolicy");
     umami.track('PrivacyOPN');
 }
 
@@ -146,7 +147,7 @@ document.onkeydown = function (esc) {
 }*/
 
 function privacyCLSText() {
-    hidden('privacyPolicy');
+    hidden("privacyPolicy");
     umami.track('PrivacyCLSText');
 }
 

@@ -340,6 +340,15 @@ div.visible {
 #ipArea {
     margin-top: 2em;
     min-height: 20px;
+    font-style: italic;
+}
+
+#ipText {
+    font-weight: bold;
+}
+
+#ip {
+    font-weight: normal;
 }
 
 #pingText,
