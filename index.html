@@ -3,8 +3,8 @@
 
 <head>
 	<link rel="shortcut icon" href="/assets/img/favicon.ico">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta charset="UTF-8">
 	<link rel="stylesheet" type="text/css" href="/css/style.css">
 	<script type="text/javascript" src="/js/speedtest.js"></script>
 	<script src="/js/init.js"></script>
@@ -23,7 +23,7 @@
 		<p id="message"><span class="loadCircle"></span>Selecting a server...</p>
 	</div>
 	<div id="testWrapper" class="hidden">
-		<div id="startStopBtn" onclick="startStop()"></div><br />
+		<div id="startStopBtn" onclick="startStop()"></div><br>
 		<div id="serverArea">
 			Server: <select id="server" title="Server selection"
 				onchange="s.setSelectedServer(SPEEDTEST_SERVERS[this.value])"></select>
@@ -67,13 +67,14 @@
 				<h3>Share results</h3>
 				<p>Test ID: <span id="testId"></span></p>
 				<input type="text" value="" id="resultsURL" readonly="readonly" title="Shareable URL output"
-					onclick="copyToClipboard('resultsURL')" />
-				<img src="" id="resultsImg" title="Results composed as an image" onload="autoscroll('resultsImg')" />
+					onclick="copyToClipboard('resultsURL')">
+				<img src="" id="resultsImg" title="Results composed as an image" onload="autoscroll('resultsImg')">
 			</div>
 		</div>
 		<footer>
-			<a class="privacy" href="#" onclick="privacyOPN()">Privacy Policy</a> • <a
-				id="source" href="https://github.com/MagicLike/speedtest/tree/MagicSpeed">Source code</a>
+			<a class="privacy" href="#" onclick="privacyOPN()">Privacy Policy</a> • <a id="source"
+				href="https://github.com/MagicLike/speedtest/tree/MagicSpeed" rel="noopener" target="_blank">Source
+				code</a>
 		</footer>
 	</div>
 	<div id="privacyPolicy" class="hidden">
@@ -109,28 +110,30 @@
 		<p>
 			If you want to have your information deleted, you need to provide either the ID of the test or your IP
 			address. <br> This is the only way to identify your data, without this information we won't be able to
-			comply with your request.<br /><br />
-			Contact this email address for all deletion requests: <a
-				href="mailto:privacy@speedtest.magiclike.net" data-umami-event="Privacy E-Mail">privacy@speedtest.magiclike.net</a>.
+			comply with your request.<br><br>
+			Contact this email address for all deletion requests: <a href="mailto:privacy@speedtest.magiclike.net"
+				data-umami-event="Privacy E-Mail">privacy@speedtest.magiclike.net</a>.
 		</p>
 		<h4>Analytics</h4>
 		<p>
-			This website also uses the privacy-respecting analytics tool <a href="https://umami.is" rel="noopener" target="_blank">Umami</a>.
-			<p>Among other, the following data is collected by it: <br>
-				<ul>
-					<li>Browser information</li>
-					<li>OS information</li>
-					<li>Device Type</li>
-					<li>Your Country (Your IP-address is <strong>not</strong> collected!)</li>
-				</ul>
-				<strong>But</strong> it does <strong>not</strong> collect any personal data! <br>
-				If you want to opt-out regardless, then please add the following URL to your ad-blocker: <pre>u.magiclike.net/script.js</pre>
+			This website also uses the privacy-respecting analytics tool <a href="https://umami.is" rel="noopener"
+				target="_blank">Umami</a>.
+		<p>Among other, the following data is collected by it: <br>
+		<ul>
+			<li>Browser information</li>
+			<li>OS information</li>
+			<li>Device Type</li>
+			<li>Your Country (Your IP-address is <strong>not</strong> collected!)</li>
+		</ul>
+		<strong>But</strong> it does <strong>not</strong> collect any personal data! <br>
+		If you want to opt-out regardless, then please add the following URL to your ad-blocker:
+		<pre>u.magiclike.net/script.js</pre>
 		</p>
 		<br><br>
 		<div class="closePrivacyPolicy">
 			<a class="privacy" href="#" onclick="privacyCLSText()">Close</a>
 		</div>
-		<br />
+		<br>
 	</div>
 </body>
 
