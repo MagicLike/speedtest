@@ -154,8 +154,13 @@ function autoscroll(eid) {
     I(eid).scrollIntoView({ behavior: "smooth", block: "end" });
 }
 
-//copy share URL
-function copyShareURL() {
-    this.select(); this.focus(); this.select(); document.execCommand('copy'); alert('Link copied');
+//copy to clipboard
+function copyToClipboard(eid) {
+    copy = I(eid);
+    copy.focus();
+    copy.select();
+    copy.setSelectionRange(0, 99999);
+    navigator.clipboard.writeText(copy.value);
+    alert('Link copied');
     umami.track('URL click copy');
 }
