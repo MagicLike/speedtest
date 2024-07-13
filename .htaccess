@@ -1,0 +1,32 @@
+#HTTP Cache
+Header set Cache-Control "max-age=31536000"
+# no-cache
+# "max-age=604800" -> 1 Week
+# "max-age=2592000" -> 30 Days
+# "max-age=31536000" -> 1 Year
+
+#Content Security Policy - CSP-HEADER
+Header set Content-Security-Policy "frame-ancestors 'self'; default-src 'none'; script-src 'self' *.magiclike.net; script-src-attr 'unsafe-inline'; script-src-elem 'self' *.magiclike.net; object-src 'self'; img-src 'self' data:; media-src 'self'; connect-src 'self' *.magiclike.net; frame-src 'self'; form-action 'self'; base-uri 'self'; font-src 'self'; style-src 'self'; style-src-elem 'self'; style-src-attr 'self';"
+
+#HTTP Content-Types
+AddCharset UTF-8 .html
+
+#Public Key Pins
+Header set Public-Key-Pins "pin-sha256=\"base64+primary==\"; pin-sha256=\"base64+backup==\"; max-age=5184000; includeSubDomains"
+
+#Strict-Transport-Security
+Header set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+
+#X-Content-Type-Options
+Header always set X-Content-Type-Options "nosniff"
+
+#X-Frame-Options
+Header always set X-Frame-Options "SAMEORIGIN"
+
+#X-Xss-Protection
+Header always set X-Xss-Protection "1; mode=block"
+
+#Referrer-Policy
+Header set Referrer-Policy "no-referrer, same-origin"
+
+##END HTTP Security Header##
