@@ -71,6 +71,7 @@ function startStop() {
                         I("resultsURL").value = shareURL;
                         I("testId").innerHTML = testId;
                         visible("shareArea");
+                        umami.track('Speedtest completed')
                     }
                 } catch (e) { }
             }
