@@ -47,6 +47,7 @@ function startStop() {
         I("startStopBtn").className = "";
         I("server").disabled = false;
         initUI();
+        umami.track('Abort');
     } else {
         //test is not running, begin
         I("startStopBtn").className = "running";
@@ -55,6 +56,7 @@ function startStop() {
         s.onupdate = function (data) {
             uiData = data;
         };
+        umami.track('Start');
         s.onend = function (aborted) {
             I("startStopBtn").className = "";
             I("server").disabled = false;
@@ -127,12 +129,14 @@ function hidden(eid) {
 //open Privacy Policy window
 function privacyOPN() {
     visible('privacyPolicy');
+    umami.track('PrivacyOPN');
 }
 
 //close Privacy Policy window
 document.onkeydown = function (esc) {
     if (I("privacyPolicy").className == 'visible' && esc.key == 'Escape') {
         hidden('privacyPolicy');
+        umami.track('PrivacyCLSEscape');
     }
 };
 
@@ -142,6 +146,7 @@ document.onkeydown = function (esc) {
 
 function privacyCLSText() {
     hidden('privacyPolicy');
+    umami.track('PrivacyCLSText');
 }
 
 //autoscroll to given element
@@ -152,4 +157,5 @@ function autoscroll(eid) {
 //copy share URL
 function copyShareURL() {
     this.select(); this.focus(); this.select(); document.execCommand('copy'); alert('Link copied');
+    umami.track('URL click copy');
 }
