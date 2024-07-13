@@ -32,14 +32,14 @@ header('Pragma: no-cache');
             <script type="text/javascript">window.location = location.protocol + "//" + location.host + location.pathname;</script><?php
         } else {
             ?>
-            <form action="stats.php" method="GET"><input type="hidden" name="op" value="logout" /><input type="submit"
-                    value="Logout" /></form>
+            <form action="stats.php" method="GET"><input type="hidden" name="op" value="logout"><input type="submit"
+                    value="Logout"></form>
             <form action="stats.php" method="GET">
                 <h3>Search test results</h3>
-                <input type="hidden" name="op" value="id" />
-                <input type="text" name="id" id="id" placeholder="Test ID" value="" />
-                <input type="submit" value="Find" />
-                <input type="submit" onclick="document.getElementById('id').value=''" value="Show last 100 tests" />
+                <input type="hidden" name="op" value="id">
+                <input type="text" name="id" id="id" placeholder="Test ID" value="">
+                <input type="submit" value="Find">
+                <input type="submit" onclick="document.getElementById('id').value=''" value="Show last 100 tests">
             </form>
             <?php
             if ($_GET['op'] === 'id' && !empty($_GET['id'])) {
@@ -74,13 +74,13 @@ header('Pragma: no-cache');
                     <tr>
                         <th>IP and ISP Info</th>
                         <td>
-                            <?= htmlspecialchars($speedtest['ip'], ENT_HTML5, 'UTF-8') ?><br />
+                            <?= htmlspecialchars($speedtest['ip'], ENT_HTML5, 'UTF-8') ?><br>
                             <?= htmlspecialchars($speedtest['ispinfo'], ENT_HTML5, 'UTF-8') ?>
                         </td>
                     </tr>
                     <tr>
                         <th>User agent and locale</th>
-                        <td><?= htmlspecialchars($speedtest['ua'], ENT_HTML5, 'UTF-8') ?><br />
+                        <td><?= htmlspecialchars($speedtest['ua'], ENT_HTML5, 'UTF-8') ?><br>
                             <?= htmlspecialchars($speedtest['lang'], ENT_HTML5, 'UTF-8') ?>
                         </td>
                     </tr>
@@ -120,8 +120,8 @@ header('Pragma: no-cache');
         ?>
         <form action="stats.php?op=login" method="POST">
             <h3>Login</h3>
-            <input type="password" name="password" placeholder="Password" value="" />
-            <input type="submit" value="Login" />
+            <input type="password" name="password" placeholder="Password" value="">
+            <input type="submit" value="Login">
         </form>
         <?php
     }
