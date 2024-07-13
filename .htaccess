@@ -11,7 +11,7 @@ Header set Cache-Control "max-age=604800"
 # "max-age=31536000" -> 1 Year
 
 #Content Security Policy - CSP-HEADER
-Header set Content-Security-Policy "frame-ancestors 'self'; default-src 'none'; script-src 'self' *.magiclike.net; script-src-attr 'none'; script-src-elem 'self' *.magiclike.net; object-src 'self'; img-src 'self'; media-src 'self'; connect-src 'self' *.magiclike.net; frame-src 'self'; form-action 'self'; base-uri 'self'; font-src 'self'; style-src 'self'; style-src-elem 'self'; style-src-attr 'self';"
+Header set Content-Security-Policy "frame-ancestors 'self'; default-src 'none'; script-src 'self' *.magiclike.net; script-src-attr 'unsafe-inline'; script-src-elem 'self' *.magiclike.net; object-src 'self'; img-src 'self' data; media-src 'self'; connect-src 'self' *.magiclike.net; frame-src 'self'; form-action 'self'; base-uri 'self'; font-src 'self'; style-src 'self'; style-src-elem 'self'; style-src-attr 'self';"
 
 #HTTP Content-Types
 AddCharset UTF-8 .html
