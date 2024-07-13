@@ -9,6 +9,14 @@ var SPEEDTEST_SERVERS = [
         ulURL: "backend/empty.php",  //path to upload test on this server (empty.php or replacement)
         pingURL: "backend/empty.php",  //path to ping/jitter test on this server (empty.php or replacement)
         getIpURL: "backend/getIP.php"  //path to getIP on this server (getIP.php or replacement)
+    },
+    {
+        name: "[DE2] Nuremberg, Germany (Hetzner)", //user friendly name for the server
+        server: "//de2.backend.speedtest.magiclike.net/", //URL to the server. // at the beginning will be replaced with http:// or https:// automatically
+        dlURL: "backend/garbage.php",  //path to download test on this server (garbage.php or replacement)
+        ulURL: "backend/empty.php",  //path to upload test on this server (empty.php or replacement)
+        pingURL: "backend/empty.php",  //path to ping/jitter test on this server (empty.php or replacement)
+        getIpURL: "backend/getIP.php"  //path to getIP on this server (getIP.php or replacement)
     }
     //add other servers here, comma separated
 ];
