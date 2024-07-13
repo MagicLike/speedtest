@@ -148,3 +148,8 @@ function privacyCLSText() {
 function autoscroll(eid) {
     I(eid).scrollIntoView({ behavior: "smooth", block: "end" });
 }
+
+//copy share URL
+function copyShareURL() {
+    this.select(); this.focus(); this.select(); document.execCommand('copy'); alert('Link copied');
+}
