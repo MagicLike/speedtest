@@ -219,7 +219,7 @@ div.testGroup {
 #shareArea {
     width: 95%;
     max-width: 40em;
-    margin: 2em auto 0;
+    margin: auto;
 }
 
 #shareArea > * {
