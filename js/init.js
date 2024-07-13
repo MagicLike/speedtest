@@ -39,7 +39,7 @@ function initServers() {
     var runServerSelect = function () {
         s.selectServer(function (server) {
             if (server != null) { //at least 1 server is available
-                I("loading").className = "hidden"; //hide loading message
+                hidden("loading"); //hide loading message
                 //populate server list for manual selection
                 for (var i = 0; i < SPEEDTEST_SERVERS.length; i++) {
                     if (SPEEDTEST_SERVERS[i].pingT == -1) continue;
@@ -50,7 +50,7 @@ function initServers() {
                     I("server").appendChild(option);
                 }
                 //show test UI
-                I("testWrapper").className = "visible";
+                visible("testWrapper");
                 initUI();
             } else { //no servers are available, the test cannot proceed
                 noServersAvailable();

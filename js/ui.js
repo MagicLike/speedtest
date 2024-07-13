@@ -50,7 +50,7 @@ function startStop() {
     } else {
         //test is not running, begin
         I("startStopBtn").className = "running";
-        I("shareArea").className = "hidden";
+        hidden("shareArea");
         I("server").disabled = true;
         s.onupdate = function (data) {
             uiData = data;
@@ -68,7 +68,7 @@ function startStop() {
                         I("resultsImg").src = shareURL;
                         I("resultsURL").value = shareURL;
                         I("testId").innerHTML = testId;
-                        I("shareArea").className = "visible";
+                        visible("shareArea");
                     }
                 } catch (e) { }
             }
@@ -114,22 +114,37 @@ function initUI() {
     I("progress").style.width = (100 * progBar) + "%";
 }
 
+//make element visible
+function visible(eid) {
+    I(eid).className = 'visible';
+}
+
+//hide element
+function hidden(eid) {
+    I(eid).className = 'hidden';
+}
+
+//open Privacy Policy window
+function privacyOPN() {
+    visible('privacyPolicy');
+}
+
 //close Privacy Policy window
 document.onkeydown = function (esc) {
-    if (esc.key == 'Escape') {
-        cls();
+    if (I("privacyPolicy").className == 'visible' && esc.key == 'Escape') {
+        hidden('privacyPolicy');
     }
 };
 
-/*privacyPolicy.onclick = function () {
-    cls();
+/*function privacyCLSClick() {
+    privacyPolicy.onclick = hidden('privacyPolicy');
 }*/
 
-function cls() {
-    I('privacyPolicy').className = 'hidden';
+function privacyCLSText() {
+    hidden('privacyPolicy');
 }
 
 //autoscroll to given element
 function autoscroll(eid) {
-    I(eid).scrollIntoView({ behavior: "smooth", block: "end" })
+    I(eid).scrollIntoView({ behavior: "smooth", block: "end" });
 }
